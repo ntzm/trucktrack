@@ -7,4 +7,6 @@ Route::group(['prefix' => 'deliveries', 'middleware' => 'auth', 'as' => 'deliver
     Route::post('store', 'DeliveryController@store')->name('store');
 });
 
+Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+
 Auth::routes();
