@@ -100,6 +100,33 @@ function initSelect2() {
     });
 }
 
+global.initDeliveriesShowMap = function() {
+    let directionsService = new google.maps.DirectionsService();
+
+    let map = new google.maps.Map(document.getElementsByClassName('map')[0], {
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 3,
+        disableDefaultUI: true,
+        styles: require('./map-style'),
+    });
+
+    let request = {
+        origin: locations.from,
+        destination: locations.to,
+        travelMode: google.maps.TravelMode.DRIVING,
+    };
+
+    directionsService.route(request, function(result, status) {
+        if (status === google.maps.DirectionsStatus.OK) {
+            new google.maps.DirectionsRenderer({
+                directions: result,
+                map: map,
+                suppressMarkers: true,
+            });
+        }
+    });
+};
+
 function e(text) {
     return $('<div/>').text(text).html();
 }

@@ -10297,7 +10297,7 @@ return jQuery;
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function($) {window.$ = window.jQuery = __webpack_require__(0);
+/* WEBPACK VAR INJECTION */(function($, global) {window.$ = window.jQuery = __webpack_require__(0);
 __webpack_require__(4);
 __webpack_require__(3);
 
@@ -10390,10 +10390,37 @@ function initSelect2() {
     });
 }
 
+global.initDeliveriesShowMap = function () {
+    var directionsService = new google.maps.DirectionsService();
+
+    var map = new google.maps.Map(document.getElementsByClassName('map')[0], {
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 3,
+        disableDefaultUI: true,
+        styles: __webpack_require__(15)
+    });
+
+    var request = {
+        origin: locations.from,
+        destination: locations.to,
+        travelMode: google.maps.TravelMode.DRIVING
+    };
+
+    directionsService.route(request, function (result, status) {
+        if (status === google.maps.DirectionsStatus.OK) {
+            new google.maps.DirectionsRenderer({
+                directions: result,
+                map: map,
+                suppressMarkers: true
+            });
+        }
+    });
+};
+
 function e(text) {
     return $('<div/>').text(text).html();
 }
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(14)))
 
 /***/ }),
 /* 2 */
@@ -18527,6 +18554,216 @@ if (typeof jQuery === 'undefined') {
 __webpack_require__(1);
 module.exports = __webpack_require__(2);
 
+
+/***/ }),
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports) {
+
+module.exports = [{
+    "elementType": "geometry",
+    "stylers": [{
+        "color": "#212121"
+    }]
+}, {
+    "elementType": "labels.icon",
+    "stylers": [{
+        "visibility": "off"
+    }]
+}, {
+    "elementType": "labels.text.fill",
+    "stylers": [{
+        "color": "#757575"
+    }]
+}, {
+    "elementType": "labels.text.stroke",
+    "stylers": [{
+        "color": "#212121"
+    }]
+}, {
+    "featureType": "administrative",
+    "elementType": "geometry",
+    "stylers": [{
+        "color": "#757575"
+    }]
+}, {
+    "featureType": "administrative.country",
+    "elementType": "labels.text.fill",
+    "stylers": [{
+        "color": "#9e9e9e"
+    }]
+}, {
+    "featureType": "administrative.locality",
+    "elementType": "labels.text.fill",
+    "stylers": [{
+        "color": "#bdbdbd"
+    }]
+}, {
+    "featureType": "administrative.province",
+    "stylers": [{
+        "visibility": "off"
+    }]
+}, {
+    "featureType": "poi",
+    "stylers": [{
+        "visibility": "off"
+    }]
+}, {
+    "featureType": "poi",
+    "elementType": "labels.text.fill",
+    "stylers": [{
+        "color": "#757575"
+    }]
+}, {
+    "featureType": "poi.park",
+    "elementType": "geometry",
+    "stylers": [{
+        "color": "#181818"
+    }]
+}, {
+    "featureType": "poi.park",
+    "elementType": "labels.text.fill",
+    "stylers": [{
+        "color": "#616161"
+    }]
+}, {
+    "featureType": "poi.park",
+    "elementType": "labels.text.stroke",
+    "stylers": [{
+        "color": "#1b1b1b"
+    }]
+}, {
+    "featureType": "road",
+    "elementType": "geometry.fill",
+    "stylers": [{
+        "color": "#2c2c2c"
+    }]
+}, {
+    "featureType": "road",
+    "elementType": "labels",
+    "stylers": [{
+        "visibility": "off"
+    }]
+}, {
+    "featureType": "road",
+    "elementType": "labels.text.fill",
+    "stylers": [{
+        "color": "#8a8a8a"
+    }]
+}, {
+    "featureType": "road.arterial",
+    "stylers": [{
+        "visibility": "off"
+    }]
+}, {
+    "featureType": "road.arterial",
+    "elementType": "geometry",
+    "stylers": [{
+        "color": "#373737"
+    }]
+}, {
+    "featureType": "road.highway",
+    "elementType": "geometry",
+    "stylers": [{
+        "color": "#3c3c3c"
+    }, {
+        "visibility": "off"
+    }]
+}, {
+    "featureType": "road.highway",
+    "elementType": "labels",
+    "stylers": [{
+        "visibility": "off"
+    }]
+}, {
+    "featureType": "road.highway.controlled_access",
+    "stylers": [{
+        "visibility": "on"
+    }]
+}, {
+    "featureType": "road.highway.controlled_access",
+    "elementType": "geometry",
+    "stylers": [{
+        "color": "#4e4e4e"
+    }, {
+        "visibility": "simplified"
+    }]
+}, {
+    "featureType": "road.highway.controlled_access",
+    "elementType": "labels",
+    "stylers": [{
+        "visibility": "off"
+    }]
+}, {
+    "featureType": "road.local",
+    "stylers": [{
+        "visibility": "off"
+    }]
+}, {
+    "featureType": "road.local",
+    "elementType": "labels.text.fill",
+    "stylers": [{
+        "color": "#616161"
+    }]
+}, {
+    "featureType": "transit",
+    "elementType": "labels.text.fill",
+    "stylers": [{
+        "color": "#757575"
+    }]
+}, {
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [{
+        "color": "#000000"
+    }]
+}, {
+    "featureType": "water",
+    "elementType": "labels.text",
+    "stylers": [{
+        "visibility": "off"
+    }]
+}, {
+    "featureType": "water",
+    "elementType": "labels.text.fill",
+    "stylers": [{
+        "color": "#3d3d3d"
+    }]
+}];
 
 /***/ })
 /******/ ]);
