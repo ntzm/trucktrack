@@ -14,6 +14,12 @@ class Delivery extends Model
         'trailer_damage',
     ];
 
+    protected $casts = [
+        'earnings' => 'int',
+        'fuel_used' => 'float',
+        'trailer_damage' => 'float',
+    ];
+
     public function cargo(): BelongsTo
     {
         return $this->belongsTo(Cargo::class);
