@@ -11,11 +11,11 @@ class RegisterController extends Controller
 {
     use RegistersUsers;
 
+    protected $redirectTo = '/';
+
     public function __construct()
     {
         $this->middleware('guest');
-
-        $this->redirectTo = route('dashboard');
     }
 
     protected function validator(array $data)
