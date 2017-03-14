@@ -123,6 +123,10 @@ global.initDeliveriesShowMap = function() {
                 map: map,
                 suppressMarkers: true,
             });
+
+            $('.map').show();
+            $('.map-loading').hide();
+            google.maps.event.trigger(map, 'resize');
         }
     });
 };

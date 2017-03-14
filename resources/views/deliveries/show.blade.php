@@ -74,6 +74,12 @@
             </div>
         </div>
     </div>
-    <div class="map"></div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Map</div>
+        <div class="panel-body" style="padding: 0;">
+            <div class="map"></div>
+            <p class="h3 map-loading text-center" style="margin-bottom: 15px;">Loading...</p>
+        </div>
+    </div>
 </div>
 @endsection
