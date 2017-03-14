@@ -1,25 +1,11 @@
-window.$ = window.jQuery = require('jquery');
-require('bootstrap-sass');
-require('Select2');
+import $ from 'jquery';
+import 'bootstrap-sass';
+import 'Select2';
 
-const api = {
-    locationCache: {},
-    getGameLocations: function(game, callback) {
-        if (api.locationCache.hasOwnProperty(game)) {
-            callback(api.locationCache[game]);
-        }
+import api from './api';
+import {escape as e} from './helpers';
 
-        $.get('/api/games/' + game + '/locations')
-            .done(function(locations) {
-                api.locationCache[game] = locations;
-
-                callback(locations);
-            })
-            .fail(function() {
-                console.log('fail');
-            });
-    }
-};
+global.initDeliveriesShowMap = require('./map/callback');
 
 $(document).ready(function() {
     $.ajaxSetup({
@@ -65,20 +51,20 @@ function renderGameLocations(maps, $el) {
         },
     ];
 
-    types.forEach(function(type) {
+    types.forEach(type => {
         let oldValue = $('#old-' + type.slug).val();
 
-        html += '<div class="col-sm-6">' +
-            '<div class="form-group">' +
-                '<label for="from" class="control-label">' + type.display + '</label>' +
-                '<select id="' + type.slug + '" class="form-control single-selector-search" name="' + type.slug + '" required>' +
-                '<option></option>';
+        html += `<div class="col-sm-6">
+                <div class="form-group">
+                    <label for="from" class="control-label">${type.display}</label>
+                    <select id="${type.slug}" class="form-control single-selector-search" name="${type.slug}" required>
+                    <option></option>`;
 
-        maps.forEach(function(map) {
-            html += '<optgroup label="' + e(map.name) + '">';
+        maps.forEach(map => {
+            html += `<optgroup label="${e(map.name)}">`;
 
-            map.locations.forEach(function(location) {
-                html += '<option value="' + e(location.id) + '"' + (e(location.id) === oldValue ? ' selected' : '') + '>' + e(location.name) + '</option>';
+            map.locations.forEach(location => {
+                html += `<option value="${e(location.id)}" ${(e(location.id) === oldValue ? 'selected' : '')}>${e(location.name)}</option>`;
             });
 
             html += '</optgroup>';
@@ -98,39 +84,4 @@ function initSelect2() {
         theme: 'bootstrap',
         width: '100%',
     });
-}
-
-global.initDeliveriesShowMap = function() {
-    let directionsService = new google.maps.DirectionsService();
-
-    let map = new google.maps.Map(document.getElementsByClassName('map')[0], {
-        center: {lat: -34.397, lng: 150.644},
-        zoom: 3,
-        disableDefaultUI: true,
-        styles: require('./map-style'),
-    });
-
-    let request = {
-        origin: locations.from,
-        destination: locations.to,
-        travelMode: google.maps.TravelMode.DRIVING,
-    };
-
-    directionsService.route(request, function(result, status) {
-        if (status === google.maps.DirectionsStatus.OK) {
-            new google.maps.DirectionsRenderer({
-                directions: result,
-                map: map,
-                suppressMarkers: true,
-            });
-
-            $('.map').show();
-            $('.map-loading').hide();
-            google.maps.event.trigger(map, 'resize');
-        }
-    });
-};
-
-function e(text) {
-    return $('<div/>').text(text).html();
 }
