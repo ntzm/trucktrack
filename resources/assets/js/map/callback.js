@@ -5,6 +5,7 @@ module.exports = () => {
         center: {lat: -34.397, lng: 150.644},
         zoom: 3,
         disableDefaultUI: true,
+        scrollwheel: false,
         styles: require('./style'),
     });
 
