@@ -3,12 +3,6 @@
 @section('content')
 <div class="container">
     <h1>TruckTrack</h1>
-    @if (Auth::check())
-        <a class="btn btn-primary" href="{{ route('deliveries.create') }}">Submit a new delivery</a>
-    @else
-        <a class="btn btn-primary" href="{{ route('register') }}">Register</a>
-        <a class="btn btn-primary" href="{{ route('login') }}">Login</a>
-    @endif
     <hr>
     <div class="row">
         <div class="col-md-6">

@@ -21,6 +21,11 @@
                 <a class="navbar-brand" href="{{ url('/') }}">TruckTrack</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
+                @if (Auth::check())
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{ route('deliveries.create') }}">Submit delivery</a></li>
+                    </ul>
+                @endif
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::guest())
                         <li><a href="{{ route('login') }}">Login</a></li>
