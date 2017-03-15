@@ -7,6 +7,22 @@
     <div class="row">
         <div class="col-md-6">
             <div class="panel panel-default">
+                <div class="panel-heading">User</div>
+                <div class="panel-body">
+                    <p>{{ $user->name }} joined {{ $user->created_at->diffForHumans() }} and has completed {{ $deliveryCount }} {{ str_plural('delivery', $deliveryCount) }}</p>
+
+                    @if ($mostProfitableDelivery)
+                        <p>Most profitable delivery: <a href="{{ route('deliveries.show', $mostProfitableDelivery) }}">{{ $mostProfitableDelivery->earnings }}</a></p>
+                    @endif
+
+                    @if ($furthestDelivery)
+                        <p>Furthest delivery: <a href="{{ route('deliveries.show', $furthestDelivery) }}">{{ $furthestDelivery->distance }}</a></p>
+                    @endif
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
                 <div class="panel-heading">
                     Recent Deliveries
                     <a class="pull-right" href="{{ route('users.deliveries', $user) }}">View All</a>
@@ -18,27 +34,6 @@
                         </a>
                     @endforeach
                 </ul>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">Total Deliveries</div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-sm-4 text-center">
-                            <div class="h1">{{ $totals['all'] }}</div>
-                            All time
-                        </div>
-                        <div class="col-sm-4 text-center">
-                            <div class="h1">{{ $totals['month'] }}</div>
-                            Last 31 days
-                        </div>
-                        <div class="col-sm-4 text-center">
-                            <div class="h1">{{ $totals['day'] }}</div>
-                            Last 24 hours
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

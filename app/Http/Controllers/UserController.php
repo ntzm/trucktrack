@@ -3,21 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use DateTime;
 
 class UserController extends Controller
 {
     public function show(User $user)
     {
-        $recentDeliveries = $user->deliveries()->orderBy('created_at', 'desc')->limit(5)->get();
-
-        $totals = [
-            'all' => $user->deliveries()->count(),
-            'month' => $user->deliveries()->where('created_at', '>=', new DateTime('-31 days'))->count(),
-            'day' => $user->deliveries()->where('created_at', '>=', new DateTime('-24 hours'))->count(),
-        ];
-
-        return view('users.show', compact('user', 'recentDeliveries', 'totals'));
+        return view('users.show', [
+            'user' => $user,
+            'recentDeliveries' => $user->deliveries()->orderBy('created_at', 'desc')->limit(5)->get(),
+            'deliveryCount' => $user->deliveries()->count(),
+            'mostProfitableDelivery' => $user->deliveries()->orderBy('earnings', 'desc')->first(),
+            'furthestDelivery' => $user->deliveries()->orderBy('distance', 'desc')->first(),
+        ]);
     }
 
     public function showDeliveries(User $user)
