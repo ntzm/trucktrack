@@ -40,10 +40,6 @@
                     <div class="h3" style="margin: 0;">{{ $delivery->cargo->name }}</div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-6">
             <div class="panel panel-default">
                 <div class="panel-heading">Trailer Damage</div>
                 <div class="panel-body">
