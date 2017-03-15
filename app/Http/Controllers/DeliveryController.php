@@ -14,9 +14,7 @@ class DeliveryController extends Controller
 {
     public function index()
     {
-        $deliveries = Auth::user()
-            ->deliveries()
-            ->with('cargo', 'from', 'to')
+        $deliveries = Delivery::with('cargo', 'from', 'to', 'user')
             ->orderBy('created_at', 'desc')
             ->paginate();
 

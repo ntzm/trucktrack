@@ -2,6 +2,10 @@
 
 namespace App\Models;
 
+use App\Support\Distance;
+use App\Support\Money;
+use App\Support\Percentage;
+use App\Support\Volume;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -14,11 +18,25 @@ class Delivery extends Model
         'trailer_damage',
     ];
 
-    protected $casts = [
-        'earnings' => 'int',
-        'fuel_used' => 'float',
-        'trailer_damage' => 'float',
-    ];
+    public function getDistanceAttribute(): Distance
+    {
+        return new Distance($this->attributes['distance']);
+    }
+
+    public function getEarningsAttribute(): Money
+    {
+        return new Money($this->attributes['earnings']);
+    }
+
+    public function getFuelUsedAttribute(): Volume
+    {
+        return new Volume($this->attributes['fuel_used']);
+    }
+
+    public function getTrailerDamageAttribute(): Percentage
+    {
+        return new Percentage($this->attributes['trailer_damage']);
+    }
 
     public function cargo(): BelongsTo
     {

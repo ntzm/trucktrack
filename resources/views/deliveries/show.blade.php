@@ -22,11 +22,11 @@
                         <dt>User</dt>
                         <dd>{{ $delivery->user->name }}</dd>
                         <dt>Distance</dt>
-                        <dd>{{ $delivery->distance }}km</dd>
+                        <dd>{{ $delivery->distance }}</dd>
                         <dt>Fuel used</dt>
-                        <dd>{{ $delivery->fuel_used }}l</dd>
+                        <dd>{{ $delivery->fuel_used }}</dd>
                         <dt>Earnings</dt>
-                        <dd>€{{ $delivery->earnings }}</dd>
+                        <dd>{{ $delivery->earnings }}</dd>
                         <dt>Submitted</dt>
                         <dd>{{ $delivery->created_at->diffForHumans() }}</dd>
                     </dl>
@@ -48,8 +48,8 @@
                 <div class="panel-heading">Trailer Damage</div>
                 <div class="panel-body">
                     <div class="progress" style="margin-bottom: 0;">
-                        <div class="progress-bar progress-bar-danger" style="min-width: 2em; width: {{ $delivery->trailer_damage }}%;">
-                            {{ $delivery->trailer_damage }}%
+                        <div class="progress-bar progress-bar-danger" style="min-width: 2em; width: {{ $delivery->trailer_damage }};">
+                            {{ $delivery->trailer_damage }}
                         </div>
                     </div>
                 </div>

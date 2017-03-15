@@ -26,10 +26,10 @@
                         <td>{{ $delivery->from->name }}</td>
                         <td>{{ $delivery->to->name }}</td>
                         <td>{{ $delivery->cargo->name }}</td>
-                        <td>{{ $delivery->distance }} km</td>
-                        <td>{{ $delivery->fuel_used }} l</td>
-                        <td>€{{ $delivery->earnings }}</td>
-                        <td>{{ $delivery->trailer_damage }}%</td>
+                        <td>{{ $delivery->distance }}</td>
+                        <td>{{ $delivery->fuel_used }}</td>
+                        <td>{{ $delivery->earnings }}</td>
+                        <td>{{ $delivery->trailer_damage }}</td>
                         <td>{{ $delivery->created_at->diffForHumans() }}</td>
                         <td><a href="{{ route('deliveries.show', $delivery) }}">View</a></td>
                     </tr>
