@@ -7,7 +7,6 @@ use App\Models\Cargo;
 use App\Models\Delivery;
 use App\Models\Game;
 use App\Models\Location;
-use App\Models\Preference;
 use Auth;
 
 class DeliveryController extends Controller

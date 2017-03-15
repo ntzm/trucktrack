@@ -13,6 +13,6 @@ class Volume
 
     public function __toString(): string
     {
-        return Format::number($this->amount) . 'l';
+        return Format::number($this->amount).'l';
     }
 }

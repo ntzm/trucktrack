@@ -13,6 +13,6 @@ class Percentage
 
     public function __toString(): string
     {
-        return Format::number($this->amount) . '%';
+        return Format::number($this->amount).'%';
     }
 }

@@ -92,6 +92,6 @@ class PolylineFetcher
 
         sort($locations);
 
-        return self::CACHE_PREFIX . implode('|', $locations);
+        return self::CACHE_PREFIX.implode('|', $locations);
     }
 }

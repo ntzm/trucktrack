@@ -13,6 +13,6 @@ class Distance
 
     public function __toString(): string
     {
-        return Format::number($this->amount) . 'km';
+        return Format::number($this->amount).'km';
     }
 }
