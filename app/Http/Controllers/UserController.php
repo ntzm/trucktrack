@@ -6,9 +6,9 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function show(User $user)
+    public function overview(User $user)
     {
-        return view('users.show', [
+        return view('user.show', [
             'user' => $user,
             'recentDeliveries' => $user->deliveries()->orderBy('created_at', 'desc')->limit(5)->get(),
             'deliveryCount' => $user->deliveries()->count(),
@@ -17,13 +17,13 @@ class UserController extends Controller
         ]);
     }
 
-    public function showDeliveries(User $user)
+    public function deliveries(User $user)
     {
         $deliveries = $user->deliveries()
             ->with('cargo', 'from', 'to', 'user')
             ->orderBy('created_at', 'desc')
             ->paginate();
 
-        return view('users.deliveries', compact('user', 'deliveries'));
+        return view('user.deliveries', compact('user', 'deliveries'));
     }
 }

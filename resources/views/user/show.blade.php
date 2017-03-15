@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>{{ $user->name }}</h1>
-    <hr>
+    @include('partials.users.tabs', ['page' => 'overview'])
     <div class="row">
         <div class="col-md-6">
             <div class="panel panel-default">
@@ -25,7 +25,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Recent Deliveries
-                    <a class="pull-right" href="{{ route('users.deliveries', $user) }}">View All</a>
+                    <a class="pull-right" href="{{ route('user.deliveries', $user) }}">View All</a>
                 </div>
                 <ul class="list-group">
                     @foreach ($recentDeliveries as $delivery)

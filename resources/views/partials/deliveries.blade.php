@@ -16,7 +16,7 @@
     <tbody>
     @foreach ($deliveries as $delivery)
         <tr>
-            <td><a href="{{ route('users.show', $delivery->user) }}">{{ $delivery->user->name }}</a></td>
+            <td><a href="{{ route('user.overview', $delivery->user) }}">{{ $delivery->user->name }}</a></td>
             <td>{{ $delivery->from->name }}</td>
             <td>{{ $delivery->to->name }}</td>
             <td>{{ $delivery->cargo->name }}</td>

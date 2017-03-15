@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container">
-    <h1>{{ $user->name }}'s Deliveries</h1>
-    <hr>
+    <h1>{{ $user->name }}</h1>
+    @include('partials.users.tabs', ['page' => 'deliveries'])
     @if ($deliveries->isNotEmpty())
         @include('partials.deliveries', $deliveries)
     @endif

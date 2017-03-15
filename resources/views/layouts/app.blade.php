@@ -34,7 +34,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="{{ route('users.show', Auth::user()) }}">Profile</a>
+                                    <a href="{{ route('user.overview', Auth::user()) }}">Profile</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
