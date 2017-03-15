@@ -6,6 +6,8 @@ export default () => {
         center: {lat: -34.397, lng: 150.644},
         zoom: 3,
         disableDefaultUI: true,
+        disableDoubleClickZoom: true,
+        draggable: false,
         scrollwheel: false,
         styles: style,
     });
@@ -15,6 +17,7 @@ export default () => {
             let path = google.maps.geometry.encoding.decodePath(result);
 
             new google.maps.Polyline({
+                clickable: false,
                 map: map,
                 path: path,
                 strokeColor: "#d80000",
