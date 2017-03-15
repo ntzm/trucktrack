@@ -1,31 +1,36 @@
-module.exports = () => {
-    let directionsService = new google.maps.DirectionsService();
+import api from '../api';
+import style from './style';
 
+export default () => {
     let map = new google.maps.Map(document.getElementsByClassName('map')[0], {
         center: {lat: -34.397, lng: 150.644},
         zoom: 3,
         disableDefaultUI: true,
         scrollwheel: false,
-        styles: require('./style'),
+        styles: style,
     });
 
-    let request = {
-        origin: locations.from,
-        destination: locations.to,
-        travelMode: google.maps.TravelMode.DRIVING,
-    };
+    api.getDirections(locations.from, locations.to, result => {
+        let path = google.maps.geometry.encoding.decodePath(result);
 
-    directionsService.route(request, (result, status) => {
-        if (status === google.maps.DirectionsStatus.OK) {
-            new google.maps.DirectionsRenderer({
-                directions: result,
-                map: map,
-                suppressMarkers: true,
-            });
+        new google.maps.Polyline({
+            map: map,
+            path: path,
+            strokeColor: "#d80000",
+            strokeWeight: 7,
+        });
 
-            $('.map').show();
-            $('.map-loading').hide();
-            google.maps.event.trigger(map, 'resize');
+        var center = new google.maps.LatLngBounds();
+
+        for (var i = 0; i < path.length; i++) {
+            center.extend(path[i]);
         }
+
+        $('.map').show();
+        $('.map-loading').hide();
+        google.maps.event.trigger(map, 'resize');
+
+        map.fitBounds(center);
+        map.setZoom(5);
     });
 };

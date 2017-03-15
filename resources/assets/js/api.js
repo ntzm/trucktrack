@@ -12,8 +12,11 @@ Api.prototype.getGameLocations = (game, callback) => {
             this.locationCache[game] = locations;
 
             callback(locations);
-        })
-        .fail(() => console.log('fail'));
+        });
 };
 
-module.exports = new Api();
+Api.prototype.getDirections = (from, to, callback) => {
+    $.get('/api/directions', {from: from, to: to}).done(callback);
+};
+
+export default new Api();

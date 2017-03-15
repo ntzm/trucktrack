@@ -5,7 +5,8 @@ import 'Select2';
 import api from './api';
 import {escape as e} from './helpers';
 
-global.initDeliveriesShowMap = require('./map/callback');
+import initDeliveriesShowMap from './map/callback';
+global.initDeliveriesShowMap = initDeliveriesShowMap;
 
 $(document).ready(function() {
     $.ajaxSetup({
