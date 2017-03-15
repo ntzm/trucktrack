@@ -12,7 +12,7 @@
 
 @section('content')
 <div class="container">
-    <p class="lead">{{ $delivery->user->name }} delivered {{ $delivery->cargo->name }} from {{ $delivery->from->name }} to {{ $delivery->to->name }} {{ $delivery->created_at->diffForHumans() }}</p>
+    <p class="lead"><a href="{{ route('users.show', $delivery->user) }}">{{ $delivery->user->name }}</a> delivered {{ $delivery->cargo->name }} from {{ $delivery->from->name }} to {{ $delivery->to->name }} {{ $delivery->created_at->diffForHumans() }}</p>
     <div class="row">
         <div class="col-sm-6">
             <div class="panel panel-default">
@@ -20,7 +20,7 @@
                 <div class="panel-body">
                     <dl class="dl-horizontal" style="margin: 0;">
                         <dt>User</dt>
-                        <dd>{{ $delivery->user->name }}</dd>
+                        <dd><a href="{{ route('users.show', $delivery->user) }}">{{ $delivery->user->name }}</a></dd>
                         <dt>Distance</dt>
                         <dd>{{ $delivery->distance }}</dd>
                         <dt>Fuel used</dt>

@@ -2,25 +2,19 @@
 
 @section('content')
 <div class="container">
-    <h1>TruckTrack</h1>
-    @if (Auth::check())
-        <a class="btn btn-primary" href="{{ route('deliveries.create') }}">Submit a new delivery</a>
-    @else
-        <a class="btn btn-primary" href="{{ route('register') }}">Register</a>
-        <a class="btn btn-primary" href="{{ route('login') }}">Login</a>
-    @endif
+    <h1>{{ $user->name }}</h1>
     <hr>
     <div class="row">
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Recent Deliveries
-                    <a class="pull-right" href="{{ route('deliveries.index') }}">View All</a>
+                    <a class="pull-right" href="{{ route('users.deliveries', $user) }}">View All</a>
                 </div>
                 <ul class="list-group">
                     @foreach ($recentDeliveries as $delivery)
                         <a class="list-group-item" href="{{ route('deliveries.show', $delivery) }}">
-                            <strong>{{ $delivery->user->name }}</strong> delivered <strong>{{ $delivery->cargo->name }}</strong> from <strong>{{ $delivery->from->name }}</strong> to <strong>{{ $delivery->to->name }}</strong> {{ $delivery->created_at->diffForHumans() }}
+                            Delivered <strong>{{ $delivery->cargo->name }}</strong> from <strong>{{ $delivery->from->name }}</strong> to <strong>{{ $delivery->to->name }}</strong> {{ $delivery->created_at->diffForHumans() }}
                         </a>
                     @endforeach
                 </ul>

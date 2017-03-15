@@ -13,6 +13,11 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
+
     public function deliveries(): HasMany
     {
         return $this->hasMany(Delivery::class);

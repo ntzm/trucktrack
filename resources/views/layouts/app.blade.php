@@ -32,9 +32,15 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="post">
+                                    <a href="{{ route('users.show', Auth::user()) }}">Profile</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="post" style="display: none;">
                                         {{ csrf_field() }}
-                                        <button type="submit" class="btn btn-link">Logout</button>
                                     </form>
                                 </li>
                             </ul>
