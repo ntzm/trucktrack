@@ -2,6 +2,7 @@
 
 namespace App\Directions;
 
+use App\Models\Location;
 use GuzzleHttp\Client;
 use Illuminate\Cache\Repository as Cache;
 
@@ -35,12 +36,12 @@ class PolylineFetcher
      * Fetch the directions polyline from the cache if it exists, or query
      * Google's directions API for it.
      *
-     * @param string $from
-     * @param string $to
+     * @param Location $from
+     * @param Location $to
      *
      * @return string
      */
-    public function fetch(string $from, string $to): string
+    public function fetch(Location $from, Location $to): string
     {
         $key = $this->getCacheKey($from, $to);
 
@@ -53,19 +54,19 @@ class PolylineFetcher
      * Query Google's directions API for directions and return the encoded
      * overview polyline.
      *
-     * @param string $from
-     * @param string $to
+     * @param Location $from
+     * @param Location $to
      *
      * @return string
      *
      * @throws DirectionsRequestException
      */
-    private function queryApi(string $from, string $to): string
+    private function queryApi(Location $from, Location $to): string
     {
         $response = $this->http->get('https://maps.googleapis.com/maps/api/directions/json', [
             'query' => [
-                'origin' => $from,
-                'destination' => $to,
+                'origin' => $from->name.','.$from->country->name,
+                'destination' => $to->name.','.$to->country->name,
                 'travelMode' => 'DRIVING',
                 'key' => $this->apiKey,
             ],
@@ -87,14 +88,14 @@ class PolylineFetcher
      * sort beforehand so we don't generate two different cache entries for the
      * same line.
      *
-     * @param string $from
-     * @param string $to
+     * @param Location $from
+     * @param Location $to
      *
      * @return string
      */
-    private function getCacheKey(string $from, string $to): string
+    private function getCacheKey(Location $from, Location $to): string
     {
-        $locations = [$from, $to];
+        $locations = [$from->id, $to->id];
 
         sort($locations);
 

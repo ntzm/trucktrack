@@ -3,8 +3,8 @@
 @push('scripts')
     <script>
         var locations = {
-            from: '{{ $delivery->from->name }}',
-            to: '{{ $delivery->to->name }}',
+            from: '{{ $delivery->from->id }}',
+            to: '{{ $delivery->to->id }}',
         };
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=geometry&callback=initDeliveriesShowMap" async defer></script>
@@ -61,7 +61,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Origin</div>
                 <div class="panel-body">
-                    <div class="h3" style="margin: 0;">{{ $delivery->from->name }}</div>
+                    <div class="h3" style="margin: 0;">{{ $delivery->from->name }} <small>{{ $delivery->from->country->name }}</small></div>
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Destination</div>
                 <div class="panel-body">
-                    <div class="h3" style="margin: 0;">{{ $delivery->to->name }}</div>
+                    <div class="h3" style="margin: 0;">{{ $delivery->to->name }} <small>{{ $delivery->to->country->name }}</small></div>
                 </div>
             </div>
         </div>

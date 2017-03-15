@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Directions\PolylineFetcher;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\GetDirections;
+use App\Models\Location;
 
 class DirectionsController extends Controller
 {
@@ -21,8 +22,8 @@ class DirectionsController extends Controller
     public function get(GetDirections $request)
     {
         return $this->polylineFetcher->fetch(
-            $request->get('from'),
-            $request->get('to')
+            Location::find($request->get('from')),
+            Location::find($request->get('to'))
         );
     }
 }

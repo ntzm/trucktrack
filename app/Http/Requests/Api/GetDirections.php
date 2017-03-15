@@ -14,8 +14,8 @@ class GetDirections extends FormRequest
     public function rules()
     {
         return [
-            'from' => 'required|exists:locations,name',
-            'to' => 'required|exists:locations,name',
+            'from' => 'required|exists:locations,id',
+            'to' => 'required|exists:locations,id',
         ];
     }
 }
