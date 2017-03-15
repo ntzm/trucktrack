@@ -10,27 +10,31 @@ export default () => {
         styles: style,
     });
 
-    api.getDirections(locations.from, locations.to, result => {
-        let path = google.maps.geometry.encoding.decodePath(result);
+    api.getDirections(locations.from, locations.to)
+        .then(result => {
+            let path = google.maps.geometry.encoding.decodePath(result);
 
-        new google.maps.Polyline({
-            map: map,
-            path: path,
-            strokeColor: "#d80000",
-            strokeWeight: 7,
+            new google.maps.Polyline({
+                map: map,
+                path: path,
+                strokeColor: "#d80000",
+                strokeWeight: 7,
+            });
+
+            var center = new google.maps.LatLngBounds();
+
+            for (var i = 0; i < path.length; i++) {
+                center.extend(path[i]);
+            }
+
+            $('.map').show();
+            $('.map-loading').hide();
+            google.maps.event.trigger(map, 'resize');
+
+            map.fitBounds(center);
+            map.setZoom(5);
+        })
+        .catch(() => {
+            $('.map-container').hide();
         });
-
-        var center = new google.maps.LatLngBounds();
-
-        for (var i = 0; i < path.length; i++) {
-            center.extend(path[i]);
-        }
-
-        $('.map').show();
-        $('.map-loading').hide();
-        google.maps.event.trigger(map, 'resize');
-
-        map.fitBounds(center);
-        map.setZoom(5);
-    });
 };

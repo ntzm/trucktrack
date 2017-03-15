@@ -57,6 +57,8 @@ class PolylineFetcher
      * @param string $to
      *
      * @return string
+     *
+     * @throws DirectionsRequestException
      */
     private function queryApi(string $from, string $to): string
     {
@@ -70,6 +72,10 @@ class PolylineFetcher
         ]);
 
         $data = json_decode($response->getBody(), true);
+
+        if ($data['status'] !== 'OK') {
+            throw new DirectionsRequestException($data['status']);
+        }
 
         return $data['routes'][0]['overview_polyline']['points'];
     }

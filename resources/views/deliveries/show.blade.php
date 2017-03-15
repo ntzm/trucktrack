@@ -74,7 +74,7 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-default">
+    <div class="panel panel-default map-container">
         <div class="panel-heading">Map</div>
         <div class="panel-body" style="padding: 0;">
             <div class="map"></div>
