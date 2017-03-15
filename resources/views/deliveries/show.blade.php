@@ -61,7 +61,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Origin</div>
                 <div class="panel-body">
-                    <div class="h3" style="margin: 0;">{{ $delivery->from->name }} <small>{{ $delivery->from->country->name }}</small></div>
+                    <div class="h3" style="margin-top: 0;">{{ $delivery->from->name }} <small>{{ $delivery->from->country->name }}</small></div>
+                    <p>Map: {{ $delivery->from->map->name }}</p>
                 </div>
             </div>
         </div>
@@ -69,7 +70,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Destination</div>
                 <div class="panel-body">
-                    <div class="h3" style="margin: 0;">{{ $delivery->to->name }} <small>{{ $delivery->to->country->name }}</small></div>
+                    <div class="h3" style="margin-top: 0;">{{ $delivery->to->name }} <small>{{ $delivery->to->country->name }}</small></div>
+                    <p>Map: {{ $delivery->to->map->name }}</p>
                 </div>
             </div>
         </div>
