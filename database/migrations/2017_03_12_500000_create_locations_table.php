@@ -10,9 +10,11 @@ class CreateLocationsTable extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('country_id');
             $table->unsignedInteger('map_id');
             $table->string('name')->unique();
 
+            $table->foreign('country_id')->references('id')->on('countries');
             $table->foreign('map_id')->references('id')->on('maps');
         });
     }

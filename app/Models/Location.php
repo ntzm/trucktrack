@@ -10,6 +10,11 @@ class Location extends Model
 {
     public $timestamps = false;
 
+    public function country(): BelongsTo
+    {
+        return $this->belongsTo(Country::class);
+    }
+
     public function deliveries(): HasMany
     {
         return $this->hasMany(Delivery::class);
