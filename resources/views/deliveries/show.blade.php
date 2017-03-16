@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'View Delivery')
+
 @push('scripts')
     <script>
         var locations = {
