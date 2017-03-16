@@ -13,11 +13,11 @@ class Money
 
     public function __toString(): string
     {
-        return '€'.Format::number($this->amount);
+        return '€'.Format::currency($this->amount);
     }
 
-    public function amount()
+    public function amount(): string
     {
-        return $this->amount;
+        return Format::currency($this->amount);
     }
 }

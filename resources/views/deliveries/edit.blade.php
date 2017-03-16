@@ -57,7 +57,7 @@
                 <div class="form-group{{ $errors->has('fuel_used') ? ' has-error' : '' }}">
                     <label for="fuel_used" class="control-label">Fuel Consumed</label>
                     <div class="input-group">
-                        <input id="fuel_used" type="number" class="form-control" name="fuel_used" value="{{ old('fuel_used', $delivery->fuel_used->amount()) }}" min="0" max="100000" required>
+                        <input id="fuel_used" type="number" class="form-control" name="fuel_used" value="{{ old('fuel_used', $delivery->fuel_used->amount()) }}" min="0" max="100000" step="any" required>
                         <div class="input-group-addon">l</div>
                     </div>
                     @if ($errors->has('fuel_used'))
@@ -87,7 +87,7 @@
                 <div class="form-group{{ $errors->has('trailer_damage') ? ' has-error' : '' }}">
                     <label for="trailer_damage" class="control-label">Trailer Damage</label>
                     <div class="input-group">
-                        <input id="trailer_damage" type="number" class="form-control" name="trailer_damage" value="{{ old('trailer_damage', $delivery->trailer_damage->amount()) }}" min="0" max="100" required>
+                        <input id="trailer_damage" type="number" class="form-control" name="trailer_damage" value="{{ old('trailer_damage', $delivery->trailer_damage->amount()) }}" min="0" max="100" step="any" required>
                         <div class="input-group-addon">%</div>
                     </div>
                     @if ($errors->has('trailer_damage'))
