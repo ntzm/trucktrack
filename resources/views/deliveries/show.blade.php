@@ -47,10 +47,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Trailer Damage</div>
                 <div class="panel-body">
+                    <div class="h3" style="margin-top: 0;">{{ $delivery->trailer_damage }}</div>
                     <div class="progress" style="margin-bottom: 0;">
-                        <div class="progress-bar progress-bar-danger" style="min-width: 2em; width: {{ $delivery->trailer_damage }};">
-                            {{ $delivery->trailer_damage }}
-                        </div>
+                        <div class="progress-bar progress-bar-danger" style="width: {{ $delivery->trailer_damage }};"></div>
                     </div>
                 </div>
             </div>
