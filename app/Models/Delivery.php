@@ -9,6 +9,12 @@ use App\Support\Volume;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @property Cargo $cargo
+ * @property Location $from
+ * @property Location $to
+ * @property User $user
+ */
 class Delivery extends Model
 {
     protected $fillable = [

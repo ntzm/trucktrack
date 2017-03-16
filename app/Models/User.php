@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * @property \Illuminate\Database\Eloquent\Collection $deliveries
+ */
 class User extends Authenticatable
 {
     protected $fillable = [

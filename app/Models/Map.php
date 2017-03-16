@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * @property Game $game
+ * @property \Illuminate\Database\Eloquent\Collection $locations
+ */
 class Map extends Model
 {
     const TYPE_DEFAULT = 'default';
