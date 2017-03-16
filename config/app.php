@@ -47,6 +47,7 @@ return [
         /*
          * Application Service Providers...
          */
+        App\Providers\AuthServiceProvider::class,
         App\Providers\DirectionsServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
     ],

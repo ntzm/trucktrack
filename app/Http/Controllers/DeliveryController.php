@@ -46,4 +46,32 @@ class DeliveryController extends Controller
     {
         return view('deliveries.show', compact('delivery'));
     }
+
+    public function edit(Delivery $delivery)
+    {
+        $cargos = Cargo::all();
+        $games = Game::all();
+
+        return view('deliveries.edit', compact('delivery', 'cargos', 'games'));
+    }
+
+    public function update(StoreDelivery $request, Delivery $delivery)
+    {
+        $delivery->fill($request->all());
+
+        $delivery->cargo()->associate(Cargo::find($request->get('cargo')));
+        $delivery->from()->associate(Location::find($request->get('from')));
+        $delivery->to()->associate(Location::find($request->get('to')));
+
+        $delivery->save();
+
+        return redirect()->route('deliveries.show', compact('delivery'));
+    }
+
+    public function destroy(Delivery $delivery)
+    {
+        $delivery->delete();
+
+        return redirect('/');
+    }
 }

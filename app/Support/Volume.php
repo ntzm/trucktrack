@@ -15,4 +15,9 @@ class Volume
     {
         return Format::number($this->amount).'l';
     }
+
+    public function amount()
+    {
+        return $this->amount;
+    }
 }

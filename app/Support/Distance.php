@@ -15,4 +15,9 @@ class Distance
     {
         return Format::number($this->amount).'km';
     }
+
+    public function amount()
+    {
+        return $this->amount;
+    }
 }

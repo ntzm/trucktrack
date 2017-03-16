@@ -4,6 +4,12 @@ Route::group(['prefix' => 'deliveries', 'as' => 'deliveries.'], function () {
     Route::group(['middleware' => 'auth'], function () {
         Route::get('create', 'DeliveryController@create')->name('create');
         Route::post('create', 'DeliveryController@store')->name('store');
+
+        Route::group(['prefix' => '{delivery}', 'middleware' => 'can:update,delivery'], function () {
+            Route::get('edit', 'DeliveryController@edit')->name('edit');
+            Route::put('/', 'DeliveryController@update')->name('update');
+            Route::delete('/', 'DeliveryController@destroy')->name('destroy');
+        });
     });
 
     Route::get('/', 'DeliveryController@index')->name('index');

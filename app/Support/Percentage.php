@@ -15,4 +15,9 @@ class Percentage
     {
         return Format::number($this->amount).'%';
     }
+
+    public function amount()
+    {
+        return $this->amount;
+    }
 }

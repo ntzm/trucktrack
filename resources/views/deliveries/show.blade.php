@@ -13,6 +13,10 @@
 @section('content')
 <div class="container">
     <p class="lead"><a href="{{ route('user.overview', $delivery->user) }}">{{ $delivery->user->name }}</a> delivered {{ $delivery->cargo->name }} from {{ $delivery->from->name }} to {{ $delivery->to->name }} {{ $delivery->created_at->diffForHumans() }}</p>
+    @can('update', $delivery)
+        <a href="{{ route('deliveries.edit', $delivery) }}" class="btn btn-primary">Edit delivery</a>
+    @endcan
+    <hr>
     <div class="row">
         <div class="col-sm-6">
             <div class="panel panel-default">
