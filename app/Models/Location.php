@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
+ * @property int $id
+ * @property int $country_id
+ * @property int $map_id
+ * @property string $name
+ *
  * @property Country $country
  * @property \Illuminate\Database\Eloquent\Collection $deliveries
  * @property Map $map

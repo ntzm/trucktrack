@@ -10,6 +10,18 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
+ * @property int $id
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property int cargo_id
+ * @property int from_id
+ * @property int to_id
+ * @property int user_id
+ * @property int $distance
+ * @property int $earnings
+ * @property float $fuel_used
+ * @property float $trailer_damage
+ *
  * @property Cargo $cargo
  * @property Location $from
  * @property Location $to
