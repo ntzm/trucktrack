@@ -35,6 +35,10 @@
                         <dd>{{ $delivery->earnings }}</dd>
                         <dt>Submitted</dt>
                         <dd>{{ $delivery->created_at->diffForHumans() }}</dd>
+                        @if ($delivery->updated_at != $delivery->created_at)
+                            <dt>Updated</dt>
+                            <dd>{{ $delivery->updated_at->diffForHumans() }}</dd>
+                        @endif
                     </dl>
                 </div>
             </div>
