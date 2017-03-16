@@ -18,19 +18,19 @@ class Delivery extends Model
         'trailer_damage',
     ];
 
-    public function getDistanceAttribute(): Distance
+    public function getDistanceAttribute($value): Distance
     {
-        return new Distance($this->attributes['distance']);
+        return new Distance($value);
     }
 
-    public function getEarningsAttribute(): Money
+    public function getEarningsAttribute($value): Money
     {
-        return new Money($this->attributes['earnings']);
+        return new Money($value);
     }
 
-    public function getFuelUsedAttribute(): Volume
+    public function getFuelUsedAttribute($value): Volume
     {
-        return new Volume($this->attributes['fuel_used']);
+        return new Volume($value);
     }
 
     public function getTrailerDamageAttribute(): Percentage
