@@ -103,6 +103,15 @@
                 </div>
             </div>
         </div>
+        <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
+            <label for="content" class="control-label">Additional Comments <small>(Optional)</small></label>
+            <textarea class="form-control" name="content" id="content" rows="5" style="resize: vertical;">{{ old('content') }}</textarea>
+            @if ($errors->has('content'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('content') }}</strong>
+                </span>
+            @endif
+        </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>

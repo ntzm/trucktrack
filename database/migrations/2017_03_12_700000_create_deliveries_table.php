@@ -19,6 +19,7 @@ class CreateDeliveriesTable extends Migration
             $table->unsignedInteger('earnings');
             $table->decimal('fuel_used', 8, 2);
             $table->decimal('trailer_damage', 5, 2);
+            $table->string('content', 10000)->nullable();
 
             $table->foreign('cargo_id')->references('id')->on('cargos');
             $table->foreign('from_id')->references('id')->on('locations');

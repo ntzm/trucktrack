@@ -21,6 +21,7 @@ class StoreDelivery extends FormRequest
             'distance' => 'required|integer|between:0,100000',
             'earnings' => 'required|integer|min:0',
             'trailer_damage' => 'required|numeric|between:0,100',
+            'content' => 'max:10000',
         ];
     }
 }

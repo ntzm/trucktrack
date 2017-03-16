@@ -88,5 +88,11 @@
             <p class="h3 map-loading text-center" style="margin-bottom: 15px;">Loading...</p>
         </div>
     </div>
+    @if ($delivery->content)
+        <div class="panel panel-default">
+            <div class="panel-heading">Additional Comments</div>
+            <div class="panel-body">{!! nl2br(e($delivery->content)) !!}</div>
+        </div>
+    @endif
 </div>
 @endsection
