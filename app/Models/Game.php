@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * @property int $id
  * @property string $name
- *
  * @property \Illuminate\Database\Eloquent\Collection $maps
  */
 class Game extends Model

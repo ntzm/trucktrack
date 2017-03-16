@@ -11,7 +11,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $game_id
  * @property string $name
  * @property string $type
- *
  * @property Game $game
  * @property \Illuminate\Database\Eloquent\Collection $locations
  */

@@ -8,7 +8,6 @@ use App\Support\Percentage;
 use App\Support\Volume;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Support\HtmlString;
 
 /**
  * @property int $id
@@ -23,7 +22,6 @@ use Illuminate\Support\HtmlString;
  * @property float $fuel_used
  * @property float $trailer_damage
  * @property string $content
- *
  * @property Cargo $cargo
  * @property Location $from
  * @property Location $to
