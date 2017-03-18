@@ -17,7 +17,7 @@
                     <select id="game" class="form-control single-selector-search" disabled>
                         <option></option>
                         @foreach ($games as $game)
-                            <option value="{{ $game->id }}"{{ old('game', $delivery->from->map->game->id) === $game->id ? ' selected' : '' }}>{{ $game->name }}</option>
+                            <option value="{{ $game->id }}"{{ old('game', $delivery->from->map->game->id) == $game->id ? ' selected' : '' }}>{{ $game->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -28,7 +28,7 @@
                     <select id="cargo" class="form-control single-selector-search" name="cargo" required>
                         <option></option>
                         @foreach ($cargos as $cargo)
-                            <option value="{{ $cargo->id }}"{{ old('cargo', $delivery->cargo->id) === $cargo->id ? ' selected' : '' }}>{{ $cargo->name }}</option>
+                            <option value="{{ $cargo->id }}"{{ old('cargo', $delivery->cargo->id) == $cargo->id ? ' selected' : '' }}>{{ $cargo->name }}</option>
                         @endforeach
                     </select>
                     @if ($errors->has('cargo'))
