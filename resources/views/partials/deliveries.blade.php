@@ -9,6 +9,7 @@
         <th>Fuel Used</th>
         <th>Earnings</th>
         <th>Trailer Damage</th>
+        <th>Game Type</th>
         <th>Submitted</th>
         <th></th>
     </tr>
@@ -24,6 +25,7 @@
             <td>{{ $delivery->fuel_used }}</td>
             <td>{{ $delivery->earnings }}</td>
             <td>{{ $delivery->trailer_damage }}</td>
+            <td>{{ ucwords($delivery->game_type)  }}</td>
             <td>{{ $delivery->created_at->diffForHumans() }}</td>
             <td><a href="{{ route('deliveries.show', $delivery) }}">View</a></td>
         </tr>

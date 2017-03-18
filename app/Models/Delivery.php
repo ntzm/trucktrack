@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $earnings
  * @property float $fuel_used
  * @property float $trailer_damage
+ * @property string $game_type
  * @property string $content
  * @property Cargo $cargo
  * @property Location $from
@@ -29,11 +30,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Delivery extends Model
 {
+    const TYPE_SINGLE_PLAYER = 'single player';
+    const TYPE_MULTIPLAYER = 'multiplayer';
+
     protected $fillable = [
         'distance',
         'earnings',
         'fuel_used',
         'trailer_damage',
+        'game_type',
     ];
 
     public function getDistanceAttribute($value): Distance

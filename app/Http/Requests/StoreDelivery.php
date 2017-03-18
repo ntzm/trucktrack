@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Delivery;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreDelivery extends FormRequest
 {
@@ -21,6 +23,7 @@ class StoreDelivery extends FormRequest
             'distance' => 'required|integer|between:0,100000',
             'earnings' => 'required|integer|min:0',
             'trailer_damage' => 'required|numeric|between:0,100',
+            'game_type' => Rule::in([Delivery::TYPE_SINGLE_PLAYER, Delivery::TYPE_MULTIPLAYER]),
             'content' => 'max:10000',
         ];
     }

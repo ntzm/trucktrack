@@ -103,6 +103,24 @@
                 </div>
             </div>
         </div>
+        <div class="form-group{{ $errors->has('game_type') ? ' has-error' : '' }}">
+            <label for="game_type" class="control-label">Game Type</label>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="game_type" value="single player"{{ old('game_type', 'single player') === 'single player' ? ' checked' : '' }}> Single player
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="game_type" value="multiplayer"{{ old('game_type') === 'multiplayer' ? ' checked' : '' }}> Multiplayer
+                </label>
+            </div>
+            @if ($errors->has('game_type'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('game_type') }}</strong>
+                </span>
+            @endif
+        </div>
         <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
             <label for="content" class="control-label">Additional Comments <small>(Optional)</small></label>
             <textarea class="form-control" name="content" id="content" rows="5" style="resize: vertical;">{{ old('content') }}</textarea>
