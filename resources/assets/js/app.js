@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import 'bootstrap-sass';
-import 'Select2';
+import 'select2';
 
 import api from './api';
 import {escape as e} from './helpers';
