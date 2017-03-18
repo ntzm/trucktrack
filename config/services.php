@@ -2,7 +2,12 @@
 
 return [
     'gmaps' => [
-        'key' => env('GOOGLE_MAPS_API_KEY'),
+        'client' => [
+            'key' => env('GOOGLE_MAPS_CLIENT_API_KEY'),
+        ],
+        'server' => [
+            'key' => env('GOOGLE_MAPS_SERVER_API_KEY'),
+        ],
     ],
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),

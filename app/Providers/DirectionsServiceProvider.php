@@ -15,7 +15,7 @@ class DirectionsServiceProvider extends ServiceProvider
             return new PolylineFetcher(
                 $this->app[Repository::class],
                 new Client(),
-                $this->app['config']->get('services.gmaps.key')
+                $this->app['config']->get('services.gmaps.server.key')
             );
         });
     }
