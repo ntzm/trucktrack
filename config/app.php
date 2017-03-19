@@ -49,6 +49,7 @@ return [
          */
         App\Providers\AuthServiceProvider::class,
         App\Providers\DirectionsServiceProvider::class,
+        App\Providers\RecaptchaServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
     ],
     'aliases' => [

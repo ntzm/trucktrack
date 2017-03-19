@@ -9,6 +9,14 @@ return [
             'key' => env('GOOGLE_MAPS_SERVER_API_KEY'),
         ],
     ],
+    'recaptcha' => [
+        'site' => [
+            'key' => env('GOOGLE_RECAPTCHA_SITE_KEY'),
+        ],
+        'secret' => [
+            'key' => env('GOOGLE_RECAPTCHA_SECRET_KEY'),
+        ],
+    ],
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),
