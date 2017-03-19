@@ -10,7 +10,7 @@ return [
     'table' => 'sessions',
     'store' => null,
     'lottery' => [2, 100],
-    'cookie' => 'laravel_session',
+    'cookie' => 'trucktrack_session',
     'path' => '/',
     'domain' => env('SESSION_DOMAIN', null),
     'secure' => env('SESSION_SECURE_COOKIE', false),
