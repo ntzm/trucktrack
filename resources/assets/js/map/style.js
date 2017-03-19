@@ -162,7 +162,7 @@ export default [
                 "color": "#3c3c3c"
             },
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     },
