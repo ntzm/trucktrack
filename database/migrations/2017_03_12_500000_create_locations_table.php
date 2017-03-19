@@ -12,7 +12,7 @@ class CreateLocationsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('country_id');
             $table->unsignedInteger('map_id');
-            $table->string('name')->unique();
+            $table->string('name');
 
             $table->foreign('country_id')->references('id')->on('countries');
             $table->foreign('map_id')->references('id')->on('maps');
