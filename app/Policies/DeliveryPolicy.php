@@ -7,7 +7,7 @@ use App\Models\User;
 
 class DeliveryPolicy
 {
-    public function update(User $user, Delivery $delivery): bool
+    public function modify(User $user, Delivery $delivery): bool
     {
         return $delivery->user->is($user);
     }
