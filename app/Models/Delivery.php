@@ -39,6 +39,7 @@ class Delivery extends Model
         'fuel_used',
         'trailer_damage',
         'game_type',
+        'content',
     ];
 
     public function getDistanceAttribute($value): Distance
