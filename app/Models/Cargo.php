@@ -14,6 +14,10 @@ class Cargo extends Model
 {
     public $timestamps = false;
 
+    protected $fillable = [
+        'name',
+    ];
+
     public function deliveries(): HasMany
     {
         return $this->hasMany(Delivery::class);
