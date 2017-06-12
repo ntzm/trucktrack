@@ -25,7 +25,7 @@ class RecaptchaVerifier
     /**
      * Verify a reCAPTCHA response.
      *
-     * @param string $input
+     * @param string      $input
      * @param string|null $ip
      *
      * @return bool
@@ -50,7 +50,7 @@ class RecaptchaVerifier
     /**
      * Build the request from the input and the IP address.
      *
-     * @param string $input
+     * @param string      $input
      * @param string|null $ip
      *
      * @return array

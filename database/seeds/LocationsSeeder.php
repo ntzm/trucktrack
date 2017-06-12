@@ -394,7 +394,7 @@ class LocationsSeeder extends Seeder
                             ['name' => 'Kolka', 'country' => 'Latvia'],
                             ['name' => 'Ogre', 'country' => 'Latvia'],
                             ['name' => 'Saldus', 'country' => 'Latvia'],
-                        ]
+                        ],
                     ],
                     'RusMap' => [
                         'type' => Map::TYPE_MOD,
