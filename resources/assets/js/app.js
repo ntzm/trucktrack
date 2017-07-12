@@ -38,9 +38,11 @@ function displayGameLocations(game, $el) {
     });
 }
 
-function renderGameLocations(maps, $el) {
-    let html = '<div class="well"><div class="row">';
+function old(key) {
+    return $('#old-' + key).val();
+}
 
+function renderGameLocations(maps, $el) {
     let types = [
         {
             slug: 'from',
@@ -52,31 +54,29 @@ function renderGameLocations(maps, $el) {
         },
     ];
 
-    types.forEach(type => {
-        let oldValue = $('#old-' + type.slug).val();
-
-        html += `<div class="col-sm-6">
-                <div class="form-group">
-                    <label for="from" class="control-label">${type.display}</label>
-                    <select id="${type.slug}" class="form-control single-selector-search" name="${type.slug}" required>
-                    <option></option>`;
-
-        maps.forEach(map => {
-            html += `<optgroup label="${e(map.name)}">`;
-
-            map.locations.forEach(location => {
-                html += `<option value="${e(location.id)}" ${(e(location.id) === oldValue ? 'selected' : '')}>${e(location.name)}</option>`;
-            });
-
-            html += '</optgroup>';
-        });
-
-        html += '</select></div></div>';
-    });
-
-    html += '</div></div>';
-
-    $el.html(html);
+    $el.html(`
+        <div class="row">
+            ${types.map(type => `
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="from" class="control-label">${type.display}</label>
+                        <select id="${type.slug}" class="form-control single-selector-search" name="${type.slug}" required>
+                            <option></option>
+                            ${maps.map(map => `
+                                <optgroup label="${e(map.name)}">
+                                    ${map.locations.map(location => `
+                                        <option value="${e(location.id)}" ${e(location.id) === old(type.slug) ? 'selected' : ''}>
+                                            ${e(location.name)}
+                                        </option>
+                                    `).join('')}
+                                </optgroup>
+                            `).join('')}
+                        </select>
+                    </div>
+                </div>
+            `).join('')}
+        </div>
+    `);
 }
 
 function initSelect2() {
