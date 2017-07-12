@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'View Delivery')
+@section('title')
+{{ $delivery->user->name }} delivered {{ $delivery->cargo->name }} from {{ $delivery->from->name }} to {{ $delivery->to->name }}
+@endsection
 
 @push('scripts')
     <script>
