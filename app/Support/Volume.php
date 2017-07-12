@@ -2,22 +2,7 @@
 
 namespace App\Support;
 
-class Volume
+class Volume extends Number
 {
-    private $amount;
-
-    public function __construct($amount)
-    {
-        $this->amount = $amount;
-    }
-
-    public function __toString(): string
-    {
-        return Format::number($this->amount).'l';
-    }
-
-    public function amount(): string
-    {
-        return Format::number($this->amount);
-    }
+    protected $suffix = 'l';
 }

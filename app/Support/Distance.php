@@ -2,22 +2,7 @@
 
 namespace App\Support;
 
-class Distance
+class Distance extends Number
 {
-    private $amount;
-
-    public function __construct($amount)
-    {
-        $this->amount = $amount;
-    }
-
-    public function __toString(): string
-    {
-        return Format::number($this->amount).'km';
-    }
-
-    public function amount(): string
-    {
-        return Format::number($this->amount);
-    }
+    protected $suffix = 'km';
 }
