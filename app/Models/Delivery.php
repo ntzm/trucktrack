@@ -30,9 +30,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Delivery extends Model
 {
-    const TYPE_SINGLE_PLAYER = 'single player';
-    const TYPE_MULTIPLAYER = 'multiplayer';
-
     protected $fillable = [
         'distance',
         'earnings',

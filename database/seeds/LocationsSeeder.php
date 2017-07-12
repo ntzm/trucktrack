@@ -4,6 +4,7 @@ use App\Models\Country;
 use App\Models\Game;
 use App\Models\Location;
 use App\Models\Map;
+use App\Support\MapType;
 use Illuminate\Database\Seeder;
 
 class LocationsSeeder extends Seeder
@@ -52,7 +53,7 @@ class LocationsSeeder extends Seeder
                 // Source: http://truck-simulator.wikia.com/wiki/List_of_Cities_in_Euro_Truck_Simulator_2
                 'maps' => [
                     'Default' => [
-                        'type' => Map::TYPE_DEFAULT,
+                        'type' => MapType::DEFAULT,
                         'locations' => [
                             ['name' => 'Aberdeen', 'country' => 'United Kingdom'],
                             ['name' => 'Amsterdam', 'country' => 'Netherlands'],
@@ -129,7 +130,7 @@ class LocationsSeeder extends Seeder
                         ],
                     ],
                     'Viva la France !' => [
-                        'type' => Map::TYPE_DLC,
+                        'type' => MapType::DLC,
                         'locations' => [
                             ['name' => 'Le Mans', 'country' => 'France'],
                             ['name' => 'Le Havre', 'country' => 'France'],
@@ -154,7 +155,7 @@ class LocationsSeeder extends Seeder
                         ],
                     ],
                     'Scandinavia' => [
-                        'type' => Map::TYPE_DLC,
+                        'type' => MapType::DLC,
                         'locations' => [
                             ['name' => 'Kristiansand', 'country' => 'Norway'],
                             ['name' => 'København', 'country' => 'Denmark'],
@@ -185,7 +186,7 @@ class LocationsSeeder extends Seeder
                         ],
                     ],
                     'Going East!' => [
-                        'type' => Map::TYPE_DLC,
+                        'type' => MapType::DLC,
                         'locations' => [
                             ['name' => 'Košice', 'country' => 'Slovakia'],
                             ['name' => 'Kraków', 'country' => 'Poland'],
@@ -205,7 +206,7 @@ class LocationsSeeder extends Seeder
                         ],
                     ],
                     'ProMods' => [
-                        'type' => Map::TYPE_MOD,
+                        'type' => MapType::MOD,
                         // Source: https://www.google.com/maps/d/viewer?mid=1bDFpckQx-XAW1DP9Ip_GCmZEFHE
                         'locations' => [
                             ['name' => 'Antwerpen', 'country' => 'Belgium'],
@@ -397,7 +398,7 @@ class LocationsSeeder extends Seeder
                         ],
                     ],
                     'RusMap' => [
-                        'type' => Map::TYPE_MOD,
+                        'type' => MapType::MOD,
                         // Source: https://www.google.com/maps/d/viewer?mid=1bDFpckQx-XAW1DP9Ip_GCmZEFHE
                         'locations' => [
                             ['name' => 'Babruysk', 'country' => 'Belarus'],
@@ -456,7 +457,7 @@ class LocationsSeeder extends Seeder
                 // Source: http://truck-simulator.wikia.com/wiki/List_of_Cities_in_American_Truck_Simulator
                 'maps' => [
                     'Default' => [
-                        'type' => Map::TYPE_DEFAULT,
+                        'type' => MapType::DEFAULT,
                         'locations' => [
                             ['name' => 'Bakersfield', 'country' => 'United States of America'],
                             ['name' => 'Barstow', 'country' => 'United States of America'],
@@ -493,7 +494,7 @@ class LocationsSeeder extends Seeder
                         ],
                     ],
                     'Arizona' => [
-                        'type' => Map::TYPE_DLC,
+                        'type' => MapType::DLC,
                         'locations' => [
                             ['name' => 'Camp Verde', 'country' => 'United States of America'],
                             ['name' => 'Ehrenberg', 'country' => 'United States of America'],

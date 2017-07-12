@@ -16,10 +16,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class Map extends Model
 {
-    const TYPE_DEFAULT = 'default';
-    const TYPE_DLC = 'dlc';
-    const TYPE_MOD = 'mod';
-
     public $timestamps = false;
 
     public function game(): BelongsTo

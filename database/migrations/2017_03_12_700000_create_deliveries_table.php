@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Delivery;
+use App\Support\GameType;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -20,10 +20,7 @@ class CreateDeliveriesTable extends Migration
             $table->unsignedInteger('earnings');
             $table->decimal('fuel_used', 8, 2);
             $table->decimal('trailer_damage', 5, 2);
-            $table->enum('game_type', [
-                Delivery::TYPE_SINGLE_PLAYER,
-                Delivery::TYPE_MULTIPLAYER,
-            ])->default(Delivery::TYPE_SINGLE_PLAYER);
+            $table->enum('game_type', GameType::toArray())->default(GameType::SINGLE_PLAYER);
             $table->string('content', 10000)->nullable();
 
             $table->foreign('cargo_id')->references('id')->on('cargos');
