@@ -40,20 +40,20 @@
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
-                @if (Auth::check())
+                @if (auth()->check())
                     <ul class="nav navbar-nav">
                         <li><a href="{{ route('deliveries.create') }}">Submit delivery</a></li>
                     </ul>
                 @endif
                 <ul class="nav navbar-nav navbar-right">
-                    @if (Auth::check())
+                    @if (auth()->check())
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                {{ auth()->user()->name }} <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="{{ route('user.overview', Auth::user()) }}">Profile</a>
+                                    <a href="{{ route('user.overview', auth()->user()) }}">Profile</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
