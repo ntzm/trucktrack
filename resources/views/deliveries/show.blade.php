@@ -95,7 +95,7 @@
         @if ($delivery->content)
             <div class="panel panel-default">
                 <div class="panel-heading">Additional Comments</div>
-                <div class="panel-body">{!! nl2br(e($delivery->content)) !!}</div>
+                <div class="panel-body">{{ App\Support\format_content($delivery->content) }}</div>
             </div>
         @endif
     </div>
