@@ -12,7 +12,7 @@
                 <div class="panel-body">
                     <form method="post" action="{{ route('login') }}">
                         {{ csrf_field() }}
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="control-label">Username</label>
                             <input id="name" type="name" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
                             @if ($errors->has('name'))
