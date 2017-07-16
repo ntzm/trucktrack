@@ -5,7 +5,6 @@ $finder = PhpCsFixer\Finder::create()
         'bootstrap/cache',
         'node_modules',
         'storage',
-        'vendor',
     ])
     ->in(__DIR__);
 
