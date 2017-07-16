@@ -91,7 +91,7 @@
                 @foreach (App\Support\GameType::toArray() as $gameType)
                     @php ($isActive = old('game_type') === $gameType)
                     <label class="btn btn-default{{ $isActive ? ' active' : '' }}">
-                        <input type="radio" name="game_type" value="{{ $gameType }}" autocomplete="off"{{ $isActive ? ' checked' : '' }}> {{ ucwords($gameType) }}
+                        <input type="radio" name="game_type" value="{{ $gameType }}" autocomplete="off"{{ $isActive ? ' checked' : '' }}> {{ $gameType }}
                     </label>
                 @endforeach
             </div>

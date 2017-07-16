@@ -36,7 +36,7 @@
                             <dt>Earnings</dt>
                             <dd>{{ $delivery->earnings }}</dd>
                             <dt>Game type</dt>
-                            <dd>{{ ucwords($delivery->game_type) }}</dd>
+                            <dd>{{ $delivery->game_type }}</dd>
                             <dt>Submitted</dt>
                             <dd>{{ $delivery->created_at->diffForHumans() }}</dd>
                             @if ($delivery->updated_at != $delivery->created_at)

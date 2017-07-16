@@ -25,7 +25,7 @@
                 <td>{{ $delivery->fuel_used }}</td>
                 <td>{{ $delivery->earnings }}</td>
                 <td>{{ $delivery->trailer_damage }}</td>
-                <td>{{ ucwords($delivery->game_type)  }}</td>
+                <td>{{ $delivery->game_type }}</td>
                 <td>{{ $delivery->created_at->diffForHumans() }}</td>
                 <td><a href="{{ route('deliveries.show', $delivery) }}">View</a></td>
             </tr>
