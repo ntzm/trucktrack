@@ -2,15 +2,6 @@
 
 @section('title', 'Register')
 
-@push('scripts')
-    <script>
-        function onSubmit() {
-            document.getElementById('form').submit();
-        }
-    </script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-@endpush
-
 @section('content')
     <div class="container">
         <div class="col-md-6 col-md-offset-3">
@@ -21,6 +12,7 @@
                 <div class="panel-body">
                     <form id="form" method="post" action="{{ route('register') }}">
                         {{ csrf_field() }}
+                        @captcha()
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="control-label">Username</label>
                             <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>

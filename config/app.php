@@ -43,13 +43,13 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
+        AlbertCht\InvisibleReCaptcha\InvisibleReCaptchaServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
         App\Providers\AuthServiceProvider::class,
         App\Providers\DirectionsServiceProvider::class,
-        App\Providers\RecaptchaServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
     ],
     'aliases' => [

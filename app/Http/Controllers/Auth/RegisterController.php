@@ -23,7 +23,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|between:3,20|alpha_dash|unique:users',
             'password' => 'required|min:6|confirmed',
-            'g-recaptcha-response' => 'required|recaptcha',
+            'g-recaptcha-response' => 'required|captcha',
         ]);
     }
 
