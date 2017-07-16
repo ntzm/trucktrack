@@ -16,13 +16,15 @@
                         <input type="hidden" id="old-from" value="{{ old('from', $delivery->from->id) }}">
                         <input type="hidden" id="old-to" value="{{ old('to', $delivery->to->id) }}">
                         <div class="form-group">
-                            <label for="game">Game</label>
-                            <select id="game" class="form-control single-selector-search" disabled>
-                                <option></option>
+                            <label>Game</label>
+                            <div class="btn-group btn-group-justified" data-toggle="buttons">
                                 @foreach ($games as $game)
-                                    <option value="{{ $game->id }}"{{ old('game', $delivery->from->map->game->id) == $game->id ? ' selected' : '' }}>{{ $game->name }}</option>
+                                    @php ($isActive = old('game', $delivery->from->map->game->id) === $game->id)
+                                    <label class="btn btn-default disabled{{ $isActive ? ' active' : '' }}">
+                                        <input type="radio" name="game" value="{{ $game->id }}" autocomplete="off"{{ $isActive ? ' checked' : '' }}> {{ $game->name }}
+                                    </label>
                                 @endforeach
-                            </select>
+                            </div>
                         </div>
                         <div id="location-container"></div>
                         <div class="form-group{{ $errors->has('cargo') ? ' has-error' : '' }}">

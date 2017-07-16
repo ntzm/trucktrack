@@ -19,13 +19,15 @@
                             <input type="hidden" id="old-to" value="{{ old('to') }}">
                         @endif
                         <div class="form-group">
-                            <label for="game">Game</label>
-                            <select id="game" class="form-control single-selector-search" name="game">
-                                <option></option>
+                            <label>Game</label>
+                            <div class="btn-group btn-group-justified" data-toggle="buttons">
                                 @foreach ($games as $game)
-                                    <option value="{{ $game->id }}"{{ old('game') == $game->id ? ' selected' : '' }}>{{ $game->name }}</option>
+                                    @php ($isActive = old('game') === $game->id)
+                                    <label class="btn btn-default{{ $isActive ? ' active' : '' }}">
+                                        <input type="radio" name="game" value="{{ $game->id }}" autocomplete="off"{{ $isActive ? ' checked' : '' }}> {{ $game->name }}
+                                    </label>
                                 @endforeach
-                            </select>
+                            </div>
                         </div>
                         <div id="location-container"></div>
                         <div class="form-group{{ $errors->has('cargo') ? ' has-error' : '' }}">

@@ -15,11 +15,12 @@ $(document).ready(function() {
         },
     });
 
-    let $gameSelector = $('#game');
+    let $gameSelector = $('input[name=game]');
+    var $selectedGame = $('input[name=game]:checked');
     let $gameLocationContainer = $('#location-container');
 
-    if ($gameSelector.val()) {
-        displayGameLocations($gameSelector.val(), $gameLocationContainer);
+    if ($selectedGame.val()) {
+        displayGameLocations($selectedGame.val(), $gameLocationContainer);
     }
 
     $gameSelector.change(function() {
@@ -27,6 +28,12 @@ $(document).ready(function() {
     });
 
     initSelect2();
+});
+
+// Stop disabled button clicks propagating
+$('.btn-group .btn.disabled').click(function(e) {
+    e.preventDefault();
+    e.stopPropagation();
 });
 
 function displayGameLocations(game, $el) {
