@@ -90,16 +90,14 @@
                             @endif
                         </div>
                         <div class="form-group{{ $errors->has('game_type') ? ' has-error' : '' }}">
-                            <label for="game_type" class="control-label">Game Type</label>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="game_type" value="single player"{{ old('game_type', $delivery->game_type) === 'single player' ? ' checked' : '' }}> Single player
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="game_type" value="multiplayer"{{ old('game_type', $delivery->game_type) === 'multiplayer' ? ' checked' : '' }}> Multiplayer
-                                </label>
+                            <label class="control-label">Game Type</label>
+                            <div class="btn-group btn-group-justified" data-toggle="buttons">
+                                @foreach (App\Support\GameType::toArray() as $gameType)
+                                    @php ($isActive = old('game_type', $delivery->game_type) === $gameType)
+                                    <label class="btn btn-default{{ $isActive ? ' active' : '' }}">
+                                        <input type="radio" name="game_type" value="{{ $gameType }}" autocomplete="off"{{ $isActive ? ' checked' : '' }}> {{ ucwords($gameType) }}
+                                    </label>
+                                @endforeach
                             </div>
                             @if ($errors->has('game_type'))
                                 <span class="help-block">
