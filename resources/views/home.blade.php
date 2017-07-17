@@ -10,34 +10,28 @@
             <div class="col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Recent Deliveries
-                        <a class="pull-right" href="{{ route('deliveries.index') }}">View All</a>
+                        @lang('app.recent_deliveries')
+                        <a class="pull-right" href="{{ route('deliveries.index') }}">@lang('app.view_all')</a>
                     </div>
-                    <ul class="list-group">
-                        @foreach ($recentDeliveries as $delivery)
-                            <a class="list-group-item" href="{{ route('deliveries.show', $delivery) }}">
-                                <strong>{{ $delivery->user->name }}</strong> delivered <strong>{{ $delivery->cargo->name }}</strong> from <strong>{{ $delivery->from->name }}</strong> to <strong>{{ $delivery->to->name }}</strong> {{ $delivery->created_at->diffForHumans() }}
-                            </a>
-                        @endforeach
-                    </ul>
+                    @include('partials.deliveries-summary', ['deliveries' => $recentDeliveries])
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Total Deliveries</div>
+                    <div class="panel-heading">@lang('app.total_deliveries')</div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-sm-4 text-center">
                                 <div class="h1">{{ $totals['all'] }}</div>
-                                All time
+                                @lang('app.all_time')
                             </div>
                             <div class="col-sm-4 text-center">
                                 <div class="h1">{{ $totals['month'] }}</div>
-                                Last 31 days
+                                @lang('app.last_31_days')
                             </div>
                             <div class="col-sm-4 text-center">
                                 <div class="h1">{{ $totals['day'] }}</div>
-                                Last 24 hours
+                                @lang('app.last_24_hours')
                             </div>
                         </div>
                     </div>

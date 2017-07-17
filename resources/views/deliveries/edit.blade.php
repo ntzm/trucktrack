@@ -1,6 +1,6 @@
 @extends('layouts.form')
 
-@section('title', 'Edit Delivery')
+@section('title', __('app.edit_delivery'))
 
 @section('form')
     <form action="{{ route('deliveries.update', $delivery) }}" method="post">

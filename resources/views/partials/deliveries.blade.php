@@ -1,16 +1,16 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>User</th>
-            <th>From</th>
-            <th>To</th>
-            <th>Cargo</th>
-            <th>Distance</th>
-            <th>Fuel Used</th>
-            <th>Earnings</th>
-            <th>Trailer Damage</th>
-            <th>Game Type</th>
-            <th>Submitted</th>
+            <th>@lang('delivery.user')</th>
+            <th>@lang('delivery.from')</th>
+            <th>@lang('delivery.to')</th>
+            <th>@lang('delivery.cargo')</th>
+            <th>@lang('delivery.distance')</th>
+            <th>@lang('delivery.fuel_used')</th>
+            <th>@lang('delivery.earnings')</th>
+            <th>@lang('delivery.trailer_damage')</th>
+            <th>@lang('delivery.game_type')</th>
+            <th>@lang('delivery.submitted')</th>
             <th></th>
         </tr>
     </thead>

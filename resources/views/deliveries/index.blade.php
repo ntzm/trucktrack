@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Deliveries')
+@section('title', __('app.deliveries'))
 
 @section('content')
     <div class="container">
-        <h1>Deliveries</h1>
+        <h1>@lang('app.deliveries')</h1>
         <hr>
         @if ($deliveries->isNotEmpty())
             @include('partials.deliveries', $deliveries)

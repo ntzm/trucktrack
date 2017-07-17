@@ -42,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbar">
                 @if (auth()->check())
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ route('deliveries.create') }}">Submit delivery</a></li>
+                        <li><a href="{{ route('deliveries.create') }}">@lang('app.submit_delivery')</a></li>
                     </ul>
                 @endif
                 <ul class="nav navbar-nav navbar-right">
@@ -53,11 +53,11 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="{{ route('user.overview', auth()->user()) }}">Profile</a>
+                                    <a href="{{ route('user.overview', auth()->user()) }}">@lang('app.profile')</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        Logout
+                                        @lang('app.log_out')
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="post" style="display: none;">
@@ -67,8 +67,8 @@
                             </ul>
                         </li>
                     @else
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                        <li><a href="{{ route('register') }}">Register</a></li>
+                        <li><a href="{{ route('login') }}">@lang('app.log_in')</a></li>
+                        <li><a href="{{ route('register') }}">@lang('app.register')</a></li>
                     @endif
                 </ul>
             </div>
