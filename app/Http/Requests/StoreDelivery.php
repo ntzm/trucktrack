@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Support\GameType;
+use App\Support\Enum\GameType;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 

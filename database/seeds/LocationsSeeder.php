@@ -4,7 +4,7 @@ use App\Models\Country;
 use App\Models\Game;
 use App\Models\Location;
 use App\Models\Map;
-use App\Support\MapType;
+use App\Support\Enum\MapType;
 use Illuminate\Database\Seeder;
 
 class LocationsSeeder extends Seeder

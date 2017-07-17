@@ -88,7 +88,7 @@
         <div class="form-group{{ $errors->has('game_type') ? ' has-error' : '' }}">
             <label class="control-label">Game Type</label>
             <div class="btn-group btn-group-justified" data-toggle="buttons">
-                @foreach (App\Support\GameType::toArray() as $gameType)
+                @foreach (\App\Support\Enum\GameType::toArray() as $gameType)
                     @php ($isActive = old('game_type') === $gameType)
                     <label class="btn btn-default{{ $isActive ? ' active' : '' }}">
                         <input type="radio" name="game_type" value="{{ $gameType }}" autocomplete="off"{{ $isActive ? ' checked' : '' }}> {{ $gameType }}

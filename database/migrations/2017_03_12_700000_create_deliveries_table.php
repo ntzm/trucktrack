@@ -1,6 +1,6 @@
 <?php
 
-use App\Support\GameType;
+use App\Support\Enum\GameType;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
