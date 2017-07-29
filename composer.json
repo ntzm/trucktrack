@@ -2,7 +2,7 @@
     "name": "tructrack",
     "type": "project",
     "require": {
-        "php": ">=7",
+        "php": ">=7.1",
         "albertcht/invisible-recaptcha": "^1.6",
         "guzzlehttp/guzzle": "^6.2",
         "laravel/framework": "5.4.*",
