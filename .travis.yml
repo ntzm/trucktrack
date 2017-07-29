@@ -1,15 +1,27 @@
+sudo: required
+dist: trusty
 language: php
 
 php:
   - 7.1
 
-sudo: false
-
 cache:
   directories:
+    - vendor
     - $HOME/.composer/cache
+    - node_modules
 
 install:
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
+  - travis_retry npm install
 
-script: vendor/bin/phpunit
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - ./vendor/laravel/dusk/bin/chromedriver-linux &
+  - cp .env.testing .env
+  - php artisan serve > /dev/null 2>&1 &
+
+script:
+  - vendor/bin/phpunit
+  - php artisan dusk
