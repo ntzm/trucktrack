@@ -12,14 +12,16 @@ cache:
     - node_modules
 
 install:
-  - travis_retry composer install --no-interaction --prefer-dist --no-suggest
-  - travis_retry npm install
+  - composer install --no-interaction --prefer-dist --no-suggest
+  - npm install
+  - npm run dev
 
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - ./vendor/laravel/dusk/bin/chromedriver-linux &
   - cp .env.testing .env
+  - php artisan db:migrate --seed
   - php artisan serve > /dev/null 2>&1 &
 
 script:
