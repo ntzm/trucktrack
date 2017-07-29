@@ -1,6 +1,7 @@
 # TruckTrack
 
 [![Build Status](https://travis-ci.org/ntzm/trucktrack.svg?branch=master)](https://travis-ci.org/ntzm/trucktrack)
+[![StyleCI](https://styleci.io/repos/84882018/shield?branch=master)](https://styleci.io/repos/84882018)
 
 ## Installation
 
