@@ -35,7 +35,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('img/logo.svg') }}" alt="TruckTrack logo" style="height: 100%; display: inline-block; margin-right: .5rem;">
+                    <img class="navbar-logo" src="{{ asset('img/logo.svg') }}" alt="TruckTrack logo">
                     TruckTrack
                 </a>
             </div>
@@ -56,11 +56,11 @@
                                     <a href="{{ route('user.overview', auth()->user()) }}">@lang('app.profile')</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <a class="js-logout" href="{{ route('logout') }}">
                                         @lang('app.log_out')
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="post" style="display: none;">
+                                    <form class="hidden" id="logout-form" action="{{ route('logout') }}" method="post">
                                         {{ csrf_field() }}
                                     </form>
                                 </li>

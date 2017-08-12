@@ -30,7 +30,7 @@
                 </label>
             </div>
         </div>
-        <div class="form-group" style="margin-bottom: 0;">
+        <div class="form-group mb0">
             <button type="submit" class="btn btn-primary">Login</button>
         </div>
     </form>

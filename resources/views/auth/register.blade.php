@@ -28,7 +28,7 @@
             <label for="password-confirm" class="control-label">Confirm Password</label>
             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
         </div>
-        <div class="form-group" style="margin-bottom: 0;">
+        <div class="form-group mb0">
             <button type="submit" class="btn btn-primary g-recaptcha" data-sitekey="{{ config('services.recaptcha.site.key') }}" data-callback="onSubmit">Register</button>
         </div>
     </form>

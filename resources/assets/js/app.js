@@ -36,6 +36,11 @@ $('.btn-group .btn.disabled').click(function(e) {
     e.stopPropagation();
 });
 
+$('.js-logout').click(function(e) {
+    e.preventDefault();
+    document.getElementById('logout-form').submit();
+});
+
 function displayGameLocations(game, $el) {
     $el.html('<div class="well">Loading...</div>');
 

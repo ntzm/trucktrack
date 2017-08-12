@@ -5,7 +5,7 @@
 @endsection
 
 @push('scripts')
-    <script>
+    <script nonce="{{ session('nonce') }}">
         var locations = {
             from: '{{ $delivery->from->id }}',
             to: '{{ $delivery->to->id }}',
@@ -26,7 +26,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Delivery Information</div>
                     <div class="panel-body">
-                        <dl class="dl-horizontal" style="margin: 0;">
+                        <dl class="dl-horizontal m0">
                             <dt>User</dt>
                             <dd><a href="{{ route('user.overview', $delivery->user) }}">{{ $delivery->user->name }}</a></dd>
                             <dt>Distance</dt>
@@ -51,15 +51,15 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Cargo</div>
                     <div class="panel-body">
-                        <div class="h3" style="margin: 0;">{{ $delivery->cargo->name }}</div>
+                        <div class="h3 m0">{{ $delivery->cargo->name }}</div>
                     </div>
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">Trailer Damage</div>
                     <div class="panel-body">
-                        <div class="h3" style="margin-top: 0;">{{ $delivery->trailer_damage }}</div>
-                        <div class="progress" style="margin-bottom: 0;">
-                            <div class="progress-bar progress-bar-danger" style="width: {{ $delivery->trailer_damage }};"></div>
+                        <div class="h3 mt0">{{ $delivery->trailer_damage }}</div>
+                        <div class="progress mb0">
+                            <div class="progress-bar progress-bar-danger" nonce="{{ session('nonce') }}" style="width: {{ $delivery->trailer_damage }};"></div>
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Origin</div>
                     <div class="panel-body">
-                        <div class="h3" style="margin-top: 0;">{{ $delivery->from->name }} <small>{{ $delivery->from->country->name }}</small></div>
+                        <div class="h3 mt0">{{ $delivery->from->name }} <small>{{ $delivery->from->country->name }}</small></div>
                         <p>Map: {{ $delivery->from->map->name }}</p>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Destination</div>
                     <div class="panel-body">
-                        <div class="h3" style="margin-top: 0;">{{ $delivery->to->name }} <small>{{ $delivery->to->country->name }}</small></div>
+                        <div class="h3 mt0">{{ $delivery->to->name }} <small>{{ $delivery->to->country->name }}</small></div>
                         <p>Map: {{ $delivery->to->map->name }}</p>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
         </div>
         <div class="panel panel-default map-container">
             <div class="panel-heading">Map</div>
-            <div class="panel-body" style="padding: 0;">
+            <div class="panel-body p0">
                 <div class="map"></div>
                 <p class="h3 map-loading text-center" style="margin-bottom: 15px;">Loading...</p>
             </div>

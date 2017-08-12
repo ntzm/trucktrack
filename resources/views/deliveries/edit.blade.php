@@ -100,19 +100,19 @@
         </div>
         <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
             <label for="content" class="control-label">Additional Comments <small>(Optional)</small></label>
-            <textarea class="form-control" name="content" id="content" rows="5" style="resize: vertical;">{{ old('content', $delivery->content) }}</textarea>
+            <textarea class="form-control" name="content" id="content" rows="5">{{ old('content', $delivery->content) }}</textarea>
             @if ($errors->has('content'))
                 <span class="help-block">
                     <strong>{{ $errors->first('content') }}</strong>
                 </span>
             @endif
         </div>
-        <div class="form-group" style="margin-bottom: 0;">
+        <div class="form-group mb0">
             <button type="submit" class="btn btn-primary">Update Delivery</button>
         </div>
     </form>
     <hr>
-    <div class="panel panel-danger" style="margin-bottom: 0;">
+    <div class="panel panel-danger mb0">
         <div class="panel-heading">Danger Zone</div>
         <div class="panel-body">
             <p>Permanently delete this delivery</p>
