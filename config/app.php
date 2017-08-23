@@ -50,7 +50,6 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        App\Providers\DirectionsServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
     ],
     'aliases' => [

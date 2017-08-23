@@ -15,8 +15,4 @@ Api.prototype.getGameLocations = (game, callback) => {
         });
 };
 
-Api.prototype.getDirections = (from, to) => {
-    return $.get('/api/directions', {from: from, to: to});
-};
-
 export default new Api();

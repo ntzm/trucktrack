@@ -4,16 +4,6 @@
     {{ $delivery->user->name }} delivered {{ $delivery->cargo->name }} from {{ $delivery->from->name }} to {{ $delivery->to->name }}
 @endsection
 
-@push('scripts')
-    <script>
-        var locations = {
-            from: '{{ $delivery->from->id }}',
-            to: '{{ $delivery->to->id }}',
-        };
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.gmaps.client.key') }}&libraries=geometry&callback=initDeliveriesShowMap" async defer></script>
-@endpush
-
 @section('content')
     <div class="container">
         <p class="lead"><a href="{{ route('user.overview', $delivery->user) }}">{{ $delivery->user->name }}</a> delivered {{ $delivery->cargo->name }} from {{ $delivery->from->name }} to {{ $delivery->to->name }} {{ $delivery->created_at->diffForHumans() }}</p>
@@ -83,13 +73,6 @@
                         <p>Map: {{ $delivery->to->map->name }}</p>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="panel panel-default map-container">
-            <div class="panel-heading">Map</div>
-            <div class="panel-body" style="padding: 0;">
-                <div class="map"></div>
-                <p class="h3 map-loading text-center" style="margin-bottom: 15px;">Loading...</p>
             </div>
         </div>
         @if ($delivery->content)
