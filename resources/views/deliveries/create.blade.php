@@ -5,8 +5,8 @@
 @section('form')
     <form action="{{ route('deliveries.store') }}" method="post">
         {{ csrf_field() }}
-        @if (old('from'))
-            <input type="hidden" id="old-from" value="{{ old('from') }}">
+        @if (old('from') || $previousDelivery)
+            <input type="hidden" id="old-from" value="{{ old('from', $previousDelivery->to->id) }}">
         @endif
         @if (old('to'))
             <input type="hidden" id="old-to" value="{{ old('to') }}">
@@ -15,7 +15,7 @@
             <label>Game</label>
             <div class="btn-group btn-group-justified" data-toggle="buttons">
                 @foreach ($games as $game)
-                    @php ($isActive = old('game') === $game->id)
+                    @php ($isActive = old('game', $previousDelivery->to->map->game->id ?? null) === $game->id)
                     <label class="btn btn-default{{ $isActive ? ' active' : '' }}">
                         <input type="radio" name="game" value="{{ $game->id }}" autocomplete="off"{{ $isActive ? ' checked' : '' }}> {{ $game->name }}
                     </label>

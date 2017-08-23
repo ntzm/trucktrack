@@ -25,7 +25,16 @@ class DeliveryController extends Controller
         $cargos = Cargo::all();
         $games = Game::all();
 
-        return view('deliveries.create', compact('cargos', 'games'));
+        $previousDelivery = Auth::user()
+            ->deliveries()
+            ->with('to.map.game')
+            ->latest()
+            ->first();
+
+        return view(
+            'deliveries.create',
+            compact('cargos', 'games', 'previousDelivery')
+        );
     }
 
     public function store(StoreDelivery $request)
