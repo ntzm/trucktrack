@@ -76,7 +76,7 @@
         <div class="form-group{{ $errors->has('trailer_damage') ? ' has-error' : '' }}">
             <label for="trailer_damage" class="control-label">Trailer Damage</label>
             <div class="input-group">
-                <input id="trailer_damage" type="number" class="form-control" name="trailer_damage" value="{{ old('trailer_damage') }}" min="0" max="100" step="any" required>
+                <input id="trailer_damage" type="number" class="form-control" name="trailer_damage" value="{{ old('trailer_damage', 0) }}" min="0" max="100" step="any" required>
                 <div class="input-group-addon">%</div>
             </div>
             @if ($errors->has('trailer_damage'))
