@@ -23,7 +23,7 @@ class DeliveryController extends Controller
     public function create()
     {
         $cargos = Cargo::all();
-        $games = Game::all();
+        $games = Game::with('maps.locations')->get()->keyBy('id');
 
         $previousDelivery = Auth::user()
             ->deliveries()

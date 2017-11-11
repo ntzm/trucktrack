@@ -2,7 +2,6 @@ import $ from 'jquery';
 import 'bootstrap-sass';
 import 'select2';
 
-import api from './api';
 import {escape as e} from './helpers';
 
 $(document).ready(function() {
@@ -13,7 +12,7 @@ $(document).ready(function() {
     });
 
     let $gameSelector = $('input[name=game]');
-    var $selectedGame = $('input[name=game]:checked');
+    let $selectedGame = $('input[name=game]:checked');
     let $gameLocationContainer = $('#location-container');
 
     if ($selectedGame.val()) {
@@ -34,12 +33,8 @@ $('.btn-group .btn.disabled').click(function(e) {
 });
 
 function displayGameLocations(game, $el) {
-    $el.html('<div class="well">Loading...</div>');
-
-    api.getGameLocations(game, function(locations) {
-        renderGameLocations(locations, $el);
-        initSelect2();
-    });
+    renderGameLocations(games[game].maps, $el);
+    initSelect2();
 }
 
 function old(key) {

@@ -115,3 +115,9 @@
         </div>
     </form>
 @endsection
+
+@push('scripts')
+    <script>
+        var games = @json($games);
+    </script>
+@endpush
