@@ -11,7 +11,7 @@ use MyCLabs\Enum\Enum;
  */
 final class MapType extends Enum
 {
-    const DEFAULT = 'default';
-    const DLC = 'dlc';
-    const MOD = 'mod';
+    public const DEFAULT = 'default';
+    public const DLC = 'dlc';
+    public const MOD = 'mod';
 }

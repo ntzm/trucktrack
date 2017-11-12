@@ -10,6 +10,6 @@ use MyCLabs\Enum\Enum;
  */
 final class GameType extends Enum
 {
-    const SINGLE_PLAYER = 'Single Player';
-    const MULTIPLAYER = 'Multiplayer';
+    public const SINGLE_PLAYER = 'Single Player';
+    public const MULTIPLAYER = 'Multiplayer';
 }
