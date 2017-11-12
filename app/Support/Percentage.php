@@ -4,7 +4,7 @@ namespace App\Support;
 
 use InvalidArgumentException;
 
-class Percentage extends Number
+final class Percentage extends Number
 {
     protected $suffix = '%';
 

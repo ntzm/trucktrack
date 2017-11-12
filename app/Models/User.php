@@ -15,7 +15,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property \Carbon\Carbon $updated_at
  * @property \Illuminate\Database\Eloquent\Collection $deliveries
  */
-class User extends Authenticatable
+final class User extends Authenticatable
 {
     protected $fillable = [
         'name',

@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $name
  * @property \Illuminate\Database\Eloquent\Collection $deliveries
  */
-class Cargo extends Model
+final class Cargo extends Model
 {
     public $timestamps = false;
 

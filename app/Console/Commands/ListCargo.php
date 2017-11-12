@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Cargo;
 use Illuminate\Console\Command;
 
-class ListCargo extends Command
+final class ListCargo extends Command
 {
     protected $signature = 'cargo:list';
 

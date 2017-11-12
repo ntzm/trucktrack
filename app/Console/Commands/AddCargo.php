@@ -6,7 +6,7 @@ use App\Models\Cargo;
 use Illuminate\Console\Command;
 use Illuminate\Database\QueryException;
 
-class AddCargo extends Command
+final class AddCargo extends Command
 {
     protected $signature = 'cargo:add {name}';
 

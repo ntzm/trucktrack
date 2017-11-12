@@ -6,7 +6,7 @@ use App\Support\Enum\GameType;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class StoreDelivery extends FormRequest
+final class StoreDelivery extends FormRequest
 {
     public function authorize()
     {

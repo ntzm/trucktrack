@@ -2,7 +2,7 @@
 
 namespace App\Support;
 
-class Money extends Number
+final class Money extends Number
 {
     protected $prefix = '€';
 }

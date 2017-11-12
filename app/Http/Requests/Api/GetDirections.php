@@ -4,7 +4,7 @@ namespace App\Http\Requests\Api;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GetDirections extends FormRequest
+final class GetDirections extends FormRequest
 {
     public function authorize()
     {

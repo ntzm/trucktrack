@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property \Illuminate\Database\Eloquent\Collection $deliveries
  * @property Map $map
  */
-class Location extends Model
+final class Location extends Model
 {
     public $timestamps = false;
 

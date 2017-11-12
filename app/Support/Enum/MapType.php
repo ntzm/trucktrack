@@ -9,7 +9,7 @@ use MyCLabs\Enum\Enum;
  * @method static MapType DLC()
  * @method static MapType MOD()
  */
-class MapType extends Enum
+final class MapType extends Enum
 {
     const DEFAULT = 'default';
     const DLC = 'dlc';

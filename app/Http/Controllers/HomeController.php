@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Delivery;
 use DateTime;
 
-class HomeController extends Controller
+final class HomeController extends Controller
 {
     public function index()
     {

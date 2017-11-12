@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $name
  * @property \Illuminate\Database\Eloquent\Collection $locations
  */
-class Country extends Model
+final class Country extends Model
 {
     public $timestamps = false;
 

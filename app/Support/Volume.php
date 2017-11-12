@@ -2,7 +2,7 @@
 
 namespace App\Support;
 
-class Volume extends Number
+final class Volume extends Number
 {
     protected $suffix = 'l';
 }

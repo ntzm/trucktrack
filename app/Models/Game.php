@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $name
  * @property \Illuminate\Database\Eloquent\Collection $maps
  */
-class Game extends Model
+final class Game extends Model
 {
     public $timestamps = false;
 

@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property Game $game
  * @property \Illuminate\Database\Eloquent\Collection $locations
  */
-class Map extends Model
+final class Map extends Model
 {
     public $timestamps = false;
 

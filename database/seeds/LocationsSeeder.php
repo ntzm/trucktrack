@@ -7,7 +7,7 @@ use App\Models\Map;
 use App\Support\Enum\MapType;
 use Illuminate\Database\Seeder;
 
-class LocationsSeeder extends Seeder
+final class LocationsSeeder extends Seeder
 {
     public function run()
     {

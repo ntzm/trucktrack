@@ -2,7 +2,7 @@
 
 namespace App\Support;
 
-class Distance extends Number
+final class Distance extends Number
 {
     protected $suffix = 'km';
 }

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class CargosTableSeeder extends Seeder
+final class CargosTableSeeder extends Seeder
 {
     public function run()
     {

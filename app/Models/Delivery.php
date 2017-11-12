@@ -28,7 +28,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property Location $to
  * @property User $user
  */
-class Delivery extends Model
+final class Delivery extends Model
 {
     protected $fillable = [
         'distance',

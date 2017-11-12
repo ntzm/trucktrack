@@ -9,7 +9,7 @@ use App\Models\Game;
 use App\Models\Location;
 use Auth;
 
-class DeliveryController extends Controller
+final class DeliveryController extends Controller
 {
     public function index()
     {
