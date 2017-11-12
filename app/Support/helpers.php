@@ -4,7 +4,7 @@ namespace App\Support;
 
 use Illuminate\Support\HtmlString;
 
-if (!function_exists('content')) {
+if (!function_exists('format_content')) {
     /**
      * Format user content.
      *
